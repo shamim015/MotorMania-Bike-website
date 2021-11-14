@@ -13,7 +13,8 @@ import Register from './Pages/Login/Login/Register/Register';
 import Purchase from './Pages/Products/Purchase/Purchase';
 import AuthProvider from './context/AuthProvider';
 import PrivateRoute from './Pages/Login/Login/PrivateRoute/PrivateRoute';
-import Products from './Pages/Products/Products/Products';
+import MoreProduct from './Pages/Products/MoreProduct/MoreProduct';
+import NotFound from './Pages/Login/NotFound/NotFound';
 
 function App() {
   return (
@@ -38,13 +39,13 @@ function App() {
               <Purchase />
             </PrivateRoute>
             <Route path="/moreProduct">
-              <Products />
+              <MoreProduct />
             </Route>
             <Route path="/register">
               <Register />
             </Route>
-            <Route path="/">
-              <Home />
+            <Route path="*">
+              <NotFound></NotFound>
             </Route>
           </Switch>
         </Router>

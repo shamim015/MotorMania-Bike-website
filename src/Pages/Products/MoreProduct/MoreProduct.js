@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -14,7 +13,7 @@ const MoreProduct = () => {
             <h1 className="p-5 text-success  text">OUR PRODUCTS</h1>
             <div className="row row-cols-1 row-cols-md-3 g-4">
                 {products
-                    .map(product =>
+                    .map(products =>
                         <div className="col ">
                             <div className="card h-100">
                                 <img src={products.img} className="card-img-top" alt="..." />

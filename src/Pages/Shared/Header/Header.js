@@ -19,7 +19,7 @@ const Header = () => {
                             navbarScroll
                         >
                             <Nav.Link as={HashLink} to="/home#home"> Home</Nav.Link>
-                            <Nav.Link as={HashLink} to="/products"> Products</Nav.Link>
+                            <Nav.Link as={HashLink} to="/moreProduct"> Products</Nav.Link>
 
                         </Nav>
                         {user?.email && <span >{user.displayName}</span>}
