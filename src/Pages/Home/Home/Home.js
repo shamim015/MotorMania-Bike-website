@@ -4,11 +4,12 @@ import Footer from '../../Shared/Footer/Footer';
 import Analytics from '../Analytics/Analytics';
 import TopBanner from '../TopBanner/TopBanner';
 
+
 const Home = () => {
     return (
         <div>
             <TopBanner></TopBanner>
-            <Products></Products>
+            <Products ></Products>
             <Analytics></Analytics>
             <Footer></Footer>
         </div>
