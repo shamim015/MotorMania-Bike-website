@@ -9,14 +9,15 @@ const Purchase = () => {
     const { user } = useAuth();
     const { productId } = useParams();
     const [product, setProduct] = useState({});
+    console.log(product);
     const { name, price } = product;
     console.log(product);
     const initalInfo = { customerName: user.displayName, email: user.email, phone: '' };
     const [purchaseInfo, setPurchaseInfo] = useState(initalInfo)
 
     useEffect(() => {
-        fetch(`https://secret-brushlands-33023.herokuapp.com/products/${productId}`)
-            .then((response) => response.json())
+        fetch(`http://localhost:5000/products/${productId}`)
+            .then(res => res.json())
             .then(data => setProduct(data))
     }, [])
 
@@ -39,7 +40,7 @@ const Purchase = () => {
         }
         console.log(userProduct);
         // send to the server
-        fetch('https://secret-brushlands-33023.herokuapp.com/userProducts', {
+        fetch("http://localhost:5000/userProducts", {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

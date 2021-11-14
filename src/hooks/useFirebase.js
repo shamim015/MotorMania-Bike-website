@@ -71,7 +71,7 @@ const useFirebase = () => {
     }, [])
 
     useEffect(() => {
-        fetch(`https://secret-brushlands-33023.herokuapp.com/users/${user.email}`)
+        fetch(`http://localhost:5000/users/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
     }, [user.email])
@@ -86,7 +86,7 @@ const useFirebase = () => {
 
     const saveUser = (email, displayName) => {
         const user = { email, displayName };
-        fetch('https://secret-brushlands-33023.herokuapp.com/users', {
+        fetch('http://localhost:5000/users', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(user)

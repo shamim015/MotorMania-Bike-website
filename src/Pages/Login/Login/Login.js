@@ -1,5 +1,5 @@
 import { Alert, Button, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { NavLink, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import Footer from '../../Shared/Footer/Footer';

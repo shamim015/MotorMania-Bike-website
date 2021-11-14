@@ -44,9 +44,6 @@ function App() {
             <Route path="/register">
               <Register />
             </Route>
-            <Route path="*">
-              <NotFound></NotFound>
-            </Route>
           </Switch>
         </Router>
       </AuthProvider>
