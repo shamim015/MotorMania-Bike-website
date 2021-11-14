@@ -23,7 +23,7 @@ const TopBanner = () => {
                         Motorbike Parts<br />
                         For Your Vehicle
                     </h1>
-                    <Link to="/products"><Button >Explore</Button></Link>
+                    <Link to="/moreProduct"><Button >Explore</Button></Link>
                 </Carousel.Caption>
             </Carousel.Item>
 
