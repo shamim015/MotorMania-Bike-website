@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import Service from '../Service/Service';
+import Product from '../Product/Product';
 
 const Products = () => {
-    const [services, setServices] = useState([]);
+    const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch("https://spooky-web-52555.herokuapp.com/services")
+        fetch("http://localhost:5000/products")
             .then(res => res.json())
-            .then(data => setServices(data))
+            .then(data => setProducts(data))
     }, [])
     return (
         <div id='services' className="home-container container mb-5">
-            <h1 className="p-5 text-success  text">POPULAR PACKAGES</h1>
+            <h1 className="p-5 text-success  text">OUR PRODUCTS</h1>
             <div className="row row-cols-1 row-cols-md-3 g-4">
-                {services.map(service =>
-                    <Service
-                        key={service.id}
-                        service={service}
-                    ></Service>
+                {products.map(product =>
+                    <Product
+                        key={product.id}
+                        product={product}
+                    ></Product>
                 )}
             </div>
         </div>

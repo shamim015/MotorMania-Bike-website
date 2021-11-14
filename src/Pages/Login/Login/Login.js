@@ -1,10 +1,11 @@
 import { Alert, Button, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material';
+import React, { useEffect, useState } from 'react';
 import { NavLink, useLocation, useHistory } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
-    // const [loginData, setLoginData] = useState();
-    // const { user, loginUser, isLoading, authError, signInWithGoogle } = useAuth();
-
+    const [loginData, setLoginData] = useState();
+    const { user, loginUser, isLoading, authError } = useAuth();
     const location = useLocation();
     const history = useHistory();
 
@@ -12,25 +13,21 @@ const Login = () => {
         const field = e.target.name;
         const value = e.target.value;
         console.log(field, value);
-        // const newLoginData = { ...loginData };
-        // newLoginData[field] = value;
-        // setLoginData(newLoginData);
+        const newLoginData = { ...loginData };
+        newLoginData[field] = value;
+        setLoginData(newLoginData);
 
     };
 
-    // const handleLoginSubmit = (e) => {
-    //     loginUser(loginData.email, loginData.password, location, history);
-    //     e.preventDefault();
-    // }
-    // // const handleGoogleSignIn = () => {
-    // //     signInWithGoogle(location, history);
-    // // }
+    const handleLoginSubmit = (e) => {
+        loginUser(loginData.email, loginData.password, location, history);
+        e.preventDefault();
+    }
 
     return (
         <Container>
-
             <Typography variant="body1">Login</Typography>
-            <form >
+            <form onSubmit={handleLoginSubmit} >
                 <TextField
                     sx={{ width: '75%', m: 1 }}
                     id="standard-basic"
@@ -45,7 +42,6 @@ const Login = () => {
                     id="standard-password-input"
                     label="Password"
                     type="Your password"
-                    type="password"
                     name="password"
                     onBlur={handleOnChange}
                     autoComplete="current-password"
@@ -59,14 +55,10 @@ const Login = () => {
                     <br />
                     <Button variant="text">New User? Please Register</Button>
                 </NavLink>
-                {/* {isLoading && <CircularProgress />}
-                        {user?.email && <Alert severity="success">Login successfully!</Alert>}
-                        {authError && <Alert severity="error">{authError}</Alert>} */}
+                {isLoading && <CircularProgress />}
+                {user?.email && <Alert severity="success">Login successfully!</Alert>}
+                {authError && <Alert severity="error">{authError}</Alert>}
             </form>
-            <p>---------</p>
-            <Button variant="contained">Google Sign In</Button>
-
-
         </Container>
     );
 };

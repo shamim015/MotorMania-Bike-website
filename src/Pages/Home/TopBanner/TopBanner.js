@@ -1,6 +1,7 @@
 import { Container, Grid, Typography } from '@mui/material';
 import React from 'react';
-import { Carousel } from 'react-bootstrap';
+import { Button, Carousel } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import bike from '../../../images/banner-bike.jpg'
 
 const verticalCenter = {
@@ -10,7 +11,7 @@ const verticalCenter = {
 }
 const TopBanner = () => {
     return (
-        <Carousel fade>
+        <Carousel>
             <Carousel.Item >
                 <img
                     className="d-block w-100  img"
@@ -18,11 +19,15 @@ const TopBanner = () => {
                     alt="First slide"
                 />
                 <Carousel.Caption>
-                    <h1>EXPERIENCE THE NATURE'S BEAUTY</h1>
-                    <p></p>
+                    <h1>Find the Best
+                        Motorbike Parts<br />
+                        For Your Vehicle
+                    </h1>
+                    <Button to='./products' >Explore</Button>
                 </Carousel.Caption>
             </Carousel.Item>
-        </Carousel>
+
+        </Carousel >
     );
 };
 

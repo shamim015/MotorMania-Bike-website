@@ -1,11 +1,11 @@
-import Button from '@restart/ui/esm/Button';
-import React from 'react';
-import { Container, Form, FormControl, Nav, Navbar, NavLink } from 'react-bootstrap';
-import { HashLink } from 'react-router-hash-link';
-import useAuth from '../../../hooks/useAuth';
 
+import React from 'react';
+import { Container, Nav, Navbar, NavLink } from 'react-bootstrap';
+import { HashLink } from 'react-router-hash-link';
+import useAuth from './../../../hooks/useAuth'
 
 const Header = () => {
+    const { user, logOut } = useAuth()
     return (
         <>
             <Navbar bg="light" expand="lg" sticky="top" className="container">
@@ -19,20 +19,19 @@ const Header = () => {
                             navbarScroll
                         >
                             <Nav.Link as={HashLink} to="/home#home"> Home</Nav.Link>
-                            <NavLink as={HashLink} to="/dashboard"> Dashboard</NavLink>
+
                         </Nav>
-
-                        {/* {user.email && <span >{user.displayName}</span>}
+                        {user?.email && <span >{user.displayName}</span>}
                         {
-                            user.email ?
-
-                                <NavLink onClick={logOut} className="btn  btn-lg">
-                                    <span className="glyphicon glyphicon-log-out"></span> <i class="fas fa-sign-out-alt"></i> Log out
-                                </NavLink>
+                            user?.email ?
+                                <Nav>
+                                    <NavLink as={HashLink} to="/dashboard"> Dashboard</NavLink>
+                                    <NavLink onClick={logOut} className="btn  btn-lg">
+                                        <span ></span> <i class="fas fa-sign-out-alt"></i> Log out
+                                    </NavLink>
+                                </Nav>
                                 :
-                                <NavLink className="btn  btn-lg" href="/login"> <i class="fas fa-sign-in-alt"></i> Login</NavLink>} */}
-                        <NavLink className="btn  btn-lg" href="/login"> <i class="fas fa-sign-in-alt"></i> Login</NavLink>
-
+                                <NavLink className="btn  btn-lg" href="/login"> <i class="fas fa-sign-in-alt"></i> Login</NavLink>}
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

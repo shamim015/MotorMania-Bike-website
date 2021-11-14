@@ -17,28 +17,28 @@ const Footer = () => {
                 textAlign: "center",
                 marginTop: "-50px"
             }}>
-                LOVE TRAVEL
+                MotorMania
             </h1>
             <br />
             <Container>
                 <Row>
                     <Column>
-                        <Heading>Menu</Heading>
-                        <FooterLink href="#">Home</FooterLink>
-                        <FooterLink href="#">Our packages</FooterLink>
-                        <FooterLink href="#">My Booking</FooterLink>
-                        <FooterLink href="#">Manage All Booking</FooterLink>
-                    </Column>
-                    <Column>
-                        <Heading>Contact Information</Heading>
-                        <FooterLink href="#">Emergency Information</FooterLink>
-                        <FooterLink href="#">01542169385</FooterLink>
-                        <FooterLink href="#">lovetravel@gmail.com</FooterLink>
-                    </Column>
-                    <Column>
-                        <Heading>About Travel</Heading>
+                        <Heading>Get In Touch</Heading>
+                        <FooterLink href="#">Address:<br />
+                            (843) 846-2230 20 Island Tank Rd Beaufort, South Carolina(SC).</FooterLink>
+                        <FooterLink href="#">Email: motomania@gmail.com</FooterLink>
 
+                    </Column>
+                    <Column>
+                        <Heading>Our Services</Heading>
+                        <FooterLink href="#">Delivery Information</FooterLink>
                         <FooterLink href="#">01542169385</FooterLink>
+                        <FooterLink href="#">Let's Talk</FooterLink>
+                    </Column>
+                    <Column>
+                        <Heading>Useful Links</Heading>
+
+                        <FooterLink href="#">Home</FooterLink>
                         <FooterLink href="#">lovetravel@gmail.com</FooterLink>
                         <p>3146 Koontz, California</p>
                     </Column>
@@ -77,7 +77,7 @@ const Footer = () => {
                 </Row>
                 <br />
                 <br />
-                <footer>©Copyright | Love Travel 2021.All Right Reserved</footer>
+                <footer>©Copyright | MotorMania 2021.All Right Reserved</footer>
             </Container>
         </Box >
     );

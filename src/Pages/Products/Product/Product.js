@@ -1,11 +1,10 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-// import './Service.css';
-const Product = ({ service }) => {
-    const { handleCart } = service;
+const Product = ({ product }) => {
+    const { handleCart } = product;
 
-    const { _id, price, name, img, description } = service;
+    const { _id, price, name, img, description } = product;
 
     return (
         <div className="col ">
@@ -15,8 +14,8 @@ const Product = ({ service }) => {
                     <h3 className="card-text">{name}</h3>
                     <p>{description}</p>
                     <h5>$ {price} </h5>
-                    <Link to={`/booking/${_id}`}>
-                        <Button variant="success">Book Now</Button>
+                    <Link to={`/purchase/${_id}`}>
+                        <Button variant="success">Buy Now</Button>
                     </Link>
                 </div>
             </div>

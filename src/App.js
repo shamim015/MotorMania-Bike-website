@@ -10,33 +10,41 @@ import Login from './Pages/Login/Login/Login';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import Header from './Pages/Shared/Header/Header';
 import Register from './Pages/Login/Login/Register/Register';
+import Purchase from './Pages/Products/Purchase/Purchase';
+import AuthProvider from './context/AuthProvider';
+import PrivateRoute from './Pages/Login/Login/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Header></Header>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/home">
-            <Home />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/dashboard">
-            <Dashboard />
-          </Route>
-          <Route path="/register">
-            <Register />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </Router>
+      <AuthProvider>
+        <Router>
+          <Header></Header>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/home">
+              <Home />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <PrivateRoute path="/dashboard">
+              <Dashboard />
+            </PrivateRoute>
+            <PrivateRoute path="/purchase/:productId">
+              <Purchase />
+            </PrivateRoute>
+            <Route path="/register">
+              <Register />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </Router>
+      </AuthProvider>
     </div>
   );
 }

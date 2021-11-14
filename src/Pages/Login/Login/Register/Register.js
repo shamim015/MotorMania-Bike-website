@@ -1,13 +1,14 @@
-import { Alert, Button, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material';
+import { Alert, Button, CircularProgress, Container, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
+import useAuth from '../../../../hooks/useAuth';
 
 
 const Register = () => {
-    const [loginData, setLoginData] = useState()
-    const history = useHistory()
-    // const { user, registerUser, isLoading, authError } = useAuth();
-
+    const [loginData, setLoginData] = useState({});
+    // const history = useHistory()
+    const { user, registerUser, isLoading, authError } = useAuth();
+    const history = useHistory();
 
     const handleOnBlur = (e) => {
         const field = e.target.name;
@@ -23,16 +24,14 @@ const Register = () => {
             alert('Your Password did not match');
             return;
         }
-        // registerUser(loginData.email, loginData.password, loginData.history);
-        // e.preventDefault();
+        registerUser(loginData.email, loginData.password, loginData.name, history);
+        e.preventDefault();
     }
     return (
         <Container container spacing={2}>
-            {/* <Grid container spacing={2}> */}
-
             <Typography variant="body1">Register</Typography>
 
-            <form onSubmit={handleLoginSubmit}>
+            {!isLoading && <form onSubmit={handleLoginSubmit}>
                 <TextField
                     sx={{ width: '75%', m: 1 }}
                     id="standard-basic"
@@ -79,11 +78,11 @@ const Register = () => {
                     <Button variant="text">Already Registered? Please Login </Button>
                 </NavLink>
             </form>
-            {/* {isLoading && <CircularProgress />}
-                    {user?.email && <Alert severity="success">User Created successfully!</Alert>}
-                    {authError && <Alert severity="error">{authError}</Alert>} */}
+            }
+            {isLoading && <CircularProgress />}
+            {user?.email && <Alert severity="success">User Created successfully!</Alert>}
+            {authError && <Alert severity="error">{authError}</Alert>}
 
-            {/* </Grid> */}
         </Container >
     );
 };
