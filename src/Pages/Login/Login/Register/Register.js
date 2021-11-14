@@ -2,6 +2,7 @@ import { Alert, Button, CircularProgress, Container, TextField, Typography } fro
 import React, { useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import useAuth from '../../../../hooks/useAuth';
+import Footer from '../../../Shared/Footer/Footer';
 
 
 const Register = () => {
@@ -28,62 +29,65 @@ const Register = () => {
         e.preventDefault();
     }
     return (
-        <Container container spacing={2}>
-            <Typography variant="body1">Register</Typography>
+        <div>
+            <Container container spacing={2}>
+                <Typography variant="body1">Register</Typography>
 
-            {!isLoading && <form onSubmit={handleLoginSubmit}>
-                <TextField
-                    sx={{ width: '75%', m: 1 }}
-                    id="standard-basic"
-                    label="Your Name"
-                    name="name"
-                    onBlur={handleOnBlur}
-                    variant="standard"
-                />
-                <TextField
-                    sx={{ width: '75%', m: 1 }}
-                    id="standard-basic"
-                    label="Your Email"
-                    type="email"
-                    name="email"
-                    onBlur={handleOnBlur}
-                    variant="standard"
-                />
+                {!isLoading && <form onSubmit={handleLoginSubmit}>
+                    <TextField
+                        sx={{ width: '75%', m: 1 }}
+                        id="standard-basic"
+                        label="Your Name"
+                        name="name"
+                        onBlur={handleOnBlur}
+                        variant="standard"
+                    />
+                    <TextField
+                        sx={{ width: '75%', m: 1 }}
+                        id="standard-basic"
+                        label="Your Email"
+                        type="email"
+                        name="email"
+                        onBlur={handleOnBlur}
+                        variant="standard"
+                    />
 
-                <TextField
-                    sx={{ width: '75%', m: 1 }}
-                    id="standard-password-input"
-                    label="Password"
-                    type="password"
-                    name="password"
-                    onBlur={handleOnBlur}
-                    autoComplete="current-password"
-                    variant="standard"
-                />
-                <TextField
-                    sx={{ width: '75%', m: 1 }}
-                    id="standard-password-input"
-                    label="Retype Your Password"
-                    type="password"
-                    name="password2"
-                    onBlur={handleOnBlur}
-                    autoComplete="current-password"
-                    variant="standard"
-                />
+                    <TextField
+                        sx={{ width: '75%', m: 1 }}
+                        id="standard-password-input"
+                        label="Password"
+                        type="password"
+                        name="password"
+                        onBlur={handleOnBlur}
+                        autoComplete="current-password"
+                        variant="standard"
+                    />
+                    <TextField
+                        sx={{ width: '75%', m: 1 }}
+                        id="standard-password-input"
+                        label="Retype Your Password"
+                        type="password"
+                        name="password2"
+                        onBlur={handleOnBlur}
+                        autoComplete="current-password"
+                        variant="standard"
+                    />
 
-                <Button sx={{ width: '75%', m: 1 }} variant="contained" type="submit" >
-                    Register
-                </Button>
-                <NavLink style={{ textDecoration: "none" }} to="/login">
-                    <Button variant="text">Already Registered? Please Login </Button>
-                </NavLink>
-            </form>
-            }
-            {isLoading && <CircularProgress />}
-            {user?.email && <Alert severity="success">User Created successfully!</Alert>}
-            {authError && <Alert severity="error">{authError}</Alert>}
+                    <Button sx={{ width: '75%', m: 1 }} variant="contained" type="submit" >
+                        Register
+                    </Button>
+                    <NavLink style={{ textDecoration: "none" }} to="/login">
+                        <Button variant="text">Already Registered? Please Login </Button>
+                    </NavLink>
+                </form>
+                }
+                {isLoading && <CircularProgress />}
+                {user?.email && <Alert severity="success">User Created successfully!</Alert>}
+                {authError && <Alert severity="error">{authError}</Alert>}
 
-        </Container >
+            </Container >
+            <Footer></Footer>
+        </div>
     );
 };
 

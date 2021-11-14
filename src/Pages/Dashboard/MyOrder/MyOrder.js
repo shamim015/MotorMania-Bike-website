@@ -12,12 +12,35 @@ import { Button } from 'react-bootstrap';
 const MyOrder = () => {
     const { user } = useAuth();
     const [products, setProducts] = useState([]);
+    const [control, setControl] = useState(false);
     useEffect(() => {
         const url = `https://secret-brushlands-33023.herokuapp.com/userProducts?email=${user.email}`
         fetch(url)
             .then(res => res.json())
             .then(data => setProducts(data))
-    }, [])
+    }, []);
+
+    // Delete products
+    const handleDeleteProduct = id => {
+        const proceed = window.confirm("Are you sure , you want to delete it?");
+        if (proceed) {
+            fetch(`https://secret-brushlands-33023.herokuapp.com/userProducts?email=/${user.id}`, {
+                method: 'DELETE',
+                headers: { "content-type": "application/json" },
+
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data.deletedCount > 0) {
+                        setControl(!control);
+                        alert("Data deleted successSully");
+                    } else {
+                        setControl(false);
+                    }
+                });
+            console.log(id);
+        }
+    };
     return (
         <div>
             <h2>My order </h2>
@@ -48,7 +71,7 @@ const MyOrder = () => {
                                 <TableCell align="right">{row.phone}</TableCell>
                                 <TableCell align="right">{row.email}</TableCell>
                                 <TableCell align="right">{row.address}</TableCell>
-                                <TableCell align="right"> <Button>Delete</Button> </TableCell>
+                                <TableCell align="right"> <Button onClick={() => handleDeleteProduct(row._id)}>Delete</Button> </TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
