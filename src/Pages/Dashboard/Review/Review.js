@@ -7,7 +7,6 @@ const Review = () => {
         register,
         handleSubmit,
         reset,
-
         formState: { errors },
     } = useForm();
     let history = useHistory();

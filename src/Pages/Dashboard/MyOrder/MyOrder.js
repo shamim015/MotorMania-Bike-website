@@ -24,7 +24,7 @@ const MyOrder = () => {
     const handleDeleteProduct = id => {
         const proceed = window.confirm("Are you sure , you want to delete it?");
         if (proceed) {
-            fetch(`https://secret-brushlands-33023.herokuapp.com/userProducts?email=/${user.id}`, {
+            fetch(`https://secret-brushlands-33023.herokuapp.com/userProducts/${id}`, {
                 method: 'DELETE',
                 headers: { "content-type": "application/json" },
 
