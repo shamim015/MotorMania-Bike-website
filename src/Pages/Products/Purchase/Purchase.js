@@ -16,7 +16,7 @@ const Purchase = () => {
     const [purchaseInfo, setPurchaseInfo] = useState(initalInfo)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${productId}`)
+        fetch(`https://powerful-ravine-22225.herokuapp.com/products/${productId}`)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [])
@@ -40,7 +40,7 @@ const Purchase = () => {
         }
         console.log(userProduct);
         // send to the server
-        fetch("http://localhost:5000/userProducts", {
+        fetch("https://powerful-ravine-22225.herokuapp.com/userProducts", {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

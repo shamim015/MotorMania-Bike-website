@@ -8,7 +8,7 @@ const AddProduct = () => {
 
     const onSubmit = (data) => {
         data.email = user?.email;
-        fetch("http://localhost:5000/addProducts", {
+        fetch("https://powerful-ravine-22225.herokuapp.com/addProducts", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),

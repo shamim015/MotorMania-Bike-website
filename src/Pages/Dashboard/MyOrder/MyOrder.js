@@ -14,7 +14,7 @@ const MyOrder = () => {
     const [products, setProducts] = useState([]);
     const [control, setControl] = useState(false);
     useEffect(() => {
-        const url = `http://localhost:5000/userProducts?email=${user.email}`
+        const url = `https://powerful-ravine-22225.herokuapp.com/userProducts?email=${user.email}`
         fetch(url)
             .then(res => res.json())
             .then(data => setProducts(data))
@@ -24,7 +24,7 @@ const MyOrder = () => {
     const handleDeleteProduct = id => {
         const proceed = window.confirm("Are you sure , you want to delete it?");
         if (proceed) {
-            fetch(`http://localhost:5000/userProducts/${id}`, {
+            fetch(`https://powerful-ravine-22225.herokuapp.com/userProducts/${id}`, {
                 method: 'DELETE',
                 headers: { "content-type": "application/json" },
 
