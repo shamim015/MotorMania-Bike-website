@@ -18,7 +18,7 @@ const AllReview = () => {
                         <div className="col ">
                             <div className="card h-100">
                                 <div className="card-body">
-                                    <h3 className="card-text">{reviews.name}</h3>
+                                    <h5 className="card-text">{reviews.name}</h5>
                                     <p>{reviews.description}</p>
                                 </div>
                             </div>
