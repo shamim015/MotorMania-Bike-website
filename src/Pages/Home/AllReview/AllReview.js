@@ -11,7 +11,7 @@ const AllReview = () => {
     }, [])
     return (
         <div id='services' className="home-container container mb-5">
-            <h1 className="p-5 text-success  text">Review</h1>
+            <h1 class="text-center  py-5">Happy <samp>Clients says</samp></h1>
             <div className="row row-cols-1 row-cols-md-3 g-4">
                 {reviews
                     .map(reviews =>

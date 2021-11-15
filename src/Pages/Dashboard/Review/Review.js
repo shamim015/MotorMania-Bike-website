@@ -40,6 +40,11 @@ const Review = () => {
                         className="form-control mb-3"
                         placeholder="Your Review"
                     />
+                    <input
+                        {...register("ratting", { required: true })}
+                        className="form-control mb-3"
+                        placeholder="Ratting(1/5)"
+                    />
 
                     {errors.exampleRequired && (
                         <span className="text-danger">This field is required</span>

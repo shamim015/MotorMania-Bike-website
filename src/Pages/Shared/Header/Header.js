@@ -26,7 +26,7 @@ const Header = () => {
                         {
                             user?.email ?
                                 <Nav>
-                                    <NavLink as={HashLink} to="/dashboard"> Dashboard</NavLink>
+                                    <NavLink className="btn  btn-lg" as={HashLink} to="/dashboard"> Dashboard</NavLink>
                                     <NavLink onClick={logOut} className="btn  btn-lg">
                                         <span ></span> <i class="fas fa-sign-out-alt"></i> Log out
                                     </NavLink>
