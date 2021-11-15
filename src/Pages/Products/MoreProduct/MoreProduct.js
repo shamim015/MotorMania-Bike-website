@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Footer from '../../Shared/Footer/Footer';
 const MoreProduct = () => {
     const [products, setProducts] = useState([]);
+    console.log(products);
     useEffect(() => {
         fetch("https://powerful-ravine-22225.herokuapp.com/products")
             .then(res => res.json())

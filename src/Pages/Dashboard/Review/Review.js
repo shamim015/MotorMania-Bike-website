@@ -11,8 +11,6 @@ const Review = () => {
     } = useForm();
     let history = useHistory();
     const onSubmit = (data) => {
-        console.log(data);
-
         fetch("https://powerful-ravine-22225.herokuapp.com/addReview", {
             method: "POST",
             headers: { "content-type": "application/json" },
@@ -20,13 +18,10 @@ const Review = () => {
         })
             .then((res) => res.json())
             .then((result) => {
-                console.log(result);
                 reset();
                 alert("Your Review successful");
                 history.push("/dashboard");
             });
-
-        console.log(data);
     };
 
     return (
@@ -41,7 +36,7 @@ const Review = () => {
                     />
 
                     <textarea
-                        {...register("descrip", { required: true })}
+                        {...register("description", { required: true })}
                         className="form-control mb-3"
                         placeholder="Your Review"
                     />

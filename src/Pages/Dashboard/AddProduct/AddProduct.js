@@ -15,6 +15,7 @@ const AddProduct = () => {
         })
             .then((res) => res.json())
             .then((result) => console.log(result));
+        alert("Product add successful");
         console.log(data);
     };
     return (

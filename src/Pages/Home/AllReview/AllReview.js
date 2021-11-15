@@ -3,8 +3,9 @@ import React, { useEffect, useState } from 'react';
 
 const AllReview = () => {
     const [reviews, setReviews] = useState([]);
+    console.log(reviews);
     useEffect(() => {
-        fetch("https://powerful-ravine-22225.herokuapp.com/addReview")
+        fetch("https://powerful-ravine-22225.herokuapp.com/AllReview")
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])
@@ -18,7 +19,7 @@ const AllReview = () => {
                             <div className="card h-100">
                                 <div className="card-body">
                                     <h3 className="card-text">{reviews.name}</h3>
-                                    <p>{reviews.descrip}</p>
+                                    <p>{reviews.description}</p>
                                 </div>
                             </div>
                         </div>
